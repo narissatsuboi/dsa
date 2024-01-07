@@ -26,11 +26,14 @@ def coin_change(coins, amount):
     
     for a in range(1, amount + 1):
         for c in coins:
+            print('[', a, ',', c, ']')
             if a - c >= 0:
                 dp[a] = min(
                             dp[a], # (itself) of c
                             1 + dp[a - c]  # (1) of c + tabulated # cs for remaining amnt
                         )
+            print(dp)
+            print()
     return dp[amount] if dp[amount] != amount + 1 else -1
             
 if __name__ == "__main__":  
